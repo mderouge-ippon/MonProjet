@@ -1,0 +1,154 @@
+/// Table d'hébergement des mesures de base (consommation, production, CO2). Ne contient pas de données.
+table Mesures
+	lineageTag: e341c377-a262-4a13-b855-ef61e8ac5f9c
+
+	/// Durée couverte par un relevé renseigné : 30 minutes (les lignes :15 et :45 du fichier sont vides). Sert à convertir des MW en MWh. À modifier si le fichier passe à des valeurs au quart d'heure.
+	measure 'Durée d''un relevé (h)' = 0.5
+		formatString: 0.0
+		isHidden
+		displayFolder: Paramètres
+		lineageTag: fc92e1b9-e5c9-41e4-9410-44e7196e3c9e
+
+	/// Puissance moyenne consommée en France sur la période sélectionnée. Moyenne des relevés renseignés (pas de 30 minutes).
+	measure 'Consommation moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Consommation (MW)])
+		formatString: #,##0
+		displayFolder: Consommation
+		lineageTag: 7c6d6fdd-ca43-486c-95e6-8ce367c24b73
+
+	/// Énergie consommée en MWh : somme des puissances relevées multipliée par 0,5 h (un relevé = 30 minutes).
+	measure 'Consommation (MWh)' = SUM('eco2mix-national-cons-def'[Consommation (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Consommation
+		lineageTag: 9e81baa2-841a-400c-a3fa-7fd6bf45f23f
+
+	/// Puissance moyenne produite par la filière fioul (sous-filières incluses). Moyenne des relevés renseignés.
+	measure 'Production fioul moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Fioul (MW)])
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: f1cd9af9-8410-4e61-9120-8478b5a76f31
+
+	/// Énergie produite par la filière fioul en MWh : somme des puissances relevées x 0,5 h.
+	measure 'Production fioul (MWh)' = SUM('eco2mix-national-cons-def'[Fioul (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: 7c682cc4-c71a-4c85-ba09-e59e13e62e97
+
+	/// Puissance moyenne produite par la filière charbon. Moyenne des relevés renseignés. Le source contient des valeurs négatives sur certains relevés, conservées telles quelles.
+	measure 'Production charbon moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Charbon (MW)])
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: 61d5089b-8376-47cb-a76a-8505ca3d2104
+
+	/// Énergie produite par la filière charbon en MWh : somme des puissances relevées x 0,5 h.
+	measure 'Production charbon (MWh)' = SUM('eco2mix-national-cons-def'[Charbon (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: 029e01df-8051-40ba-a578-1753bacb10d0
+
+	/// Puissance moyenne produite par la filière gaz (sous-filières incluses). Moyenne des relevés renseignés.
+	measure 'Production gaz moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Gaz (MW)])
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: 2040b64b-ad4a-47ca-923a-cdef812901d1
+
+	/// Énergie produite par la filière gaz en MWh : somme des puissances relevées x 0,5 h.
+	measure 'Production gaz (MWh)' = SUM('eco2mix-national-cons-def'[Gaz (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: d38e31fb-542c-48ef-8ec5-4cd1a4aac613
+
+	/// Puissance moyenne produite par la filière nucléaire. Moyenne des relevés renseignés.
+	measure 'Production nucléaire moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Nucléaire (MW)])
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: fa56c7c2-c756-44aa-8d63-0db261848f10
+
+	/// Énergie produite par la filière nucléaire en MWh : somme des puissances relevées x 0,5 h.
+	measure 'Production nucléaire (MWh)' = SUM('eco2mix-national-cons-def'[Nucléaire (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: 507d1c25-b1aa-42f8-a96b-1326b22f8210
+
+	/// Puissance moyenne produite par la filière éolienne. Moyenne des relevés renseignés.
+	measure 'Production éolienne moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Eolien (MW)])
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: 5cdf52ae-6673-494e-b450-e411a78a966e
+
+	/// Énergie produite par la filière éolienne en MWh : somme des puissances relevées x 0,5 h.
+	measure 'Production éolienne (MWh)' = SUM('eco2mix-national-cons-def'[Eolien (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: c131a1b0-3af8-4455-951d-1abbd25ffb2f
+
+	/// Puissance moyenne produite par la filière solaire. Moyenne des relevés renseignés. Le source contient des valeurs légèrement négatives la nuit (consommation des centrales), conservées telles quelles.
+	measure 'Production solaire moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Solaire (MW)])
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: 39d055f1-7e2c-4958-9272-5377f771933b
+
+	/// Énergie produite par la filière solaire en MWh : somme des puissances relevées x 0,5 h.
+	measure 'Production solaire (MWh)' = SUM('eco2mix-national-cons-def'[Solaire (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: c7341baf-41cc-41b0-9e06-a421a6e905c0
+
+	/// Puissance moyenne produite par la filière hydraulique (fil de l'eau, lacs, STEP turbinage inclus). Hors pompage.
+	measure 'Production hydraulique moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Hydraulique (MW)])
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: c44f16e3-e85d-4a2f-9ddc-b5575fee35a2
+
+	/// Énergie produite par la filière hydraulique en MWh : somme des puissances relevées x 0,5 h. Hors pompage.
+	measure 'Production hydraulique (MWh)' = SUM('eco2mix-national-cons-def'[Hydraulique (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: fcfe7e8b-1a3c-478f-9d81-8e559041e650
+
+	/// Puissance moyenne produite par les bioénergies (déchets, biomasse, biogaz inclus). Moyenne des relevés renseignés.
+	measure 'Production bioénergies moyenne (MW)' = AVERAGE('eco2mix-national-cons-def'[Bioénergies (MW)])
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: d4a0a18b-55a8-476d-b3bf-c67ea39f84d4
+
+	/// Énergie produite par les bioénergies en MWh : somme des puissances relevées x 0,5 h.
+	measure 'Production bioénergies (MWh)' = SUM('eco2mix-national-cons-def'[Bioénergies (MW)]) * [Durée d'un relevé (h)]
+		formatString: #,##0
+		displayFolder: Production\Par filière
+		lineageTag: 47ee5ce5-b15d-47d9-854f-2aa2ce1c9896
+
+	/// Production des 8 filières (fioul, charbon, gaz, nucléaire, éolien, solaire, hydraulique, bioénergies) en MWh. Exclut le pompage et les échanges ; les sous-filières sont déjà comprises dans les filières.
+	measure 'Production totale (MWh)' = [Production fioul (MWh)] + [Production charbon (MWh)] + [Production gaz (MWh)] + [Production nucléaire (MWh)] + [Production éolienne (MWh)] + [Production solaire (MWh)] + [Production hydraulique (MWh)] + [Production bioénergies (MWh)]
+		formatString: #,##0
+		displayFolder: Production\Total
+		lineageTag: 49efd75e-1829-4a50-8760-f7fdd6f0382c
+
+	/// Puissance moyenne produite par les 8 filières, calculée sur les relevés renseignés. Exclut le pompage et les échanges.
+	measure 'Production totale moyenne (MW)' = AVERAGEX('eco2mix-national-cons-def', 'eco2mix-national-cons-def'[Fioul (MW)] + 'eco2mix-national-cons-def'[Charbon (MW)] + 'eco2mix-national-cons-def'[Gaz (MW)] + 'eco2mix-national-cons-def'[Nucléaire (MW)] + 'eco2mix-national-cons-def'[Eolien (MW)] + 'eco2mix-national-cons-def'[Solaire (MW)] + 'eco2mix-national-cons-def'[Hydraulique (MW)] + 'eco2mix-national-cons-def'[Bioénergies (MW)])
+		formatString: #,##0
+		displayFolder: Production\Total
+		lineageTag: d9d7165d-958f-473b-b6c4-cca704d0b405
+
+	/// Production nucléaire rapportée à la production totale des 8 filières (hors pompage et échanges).
+	measure 'Part du nucléaire (%)' = DIVIDE([Production nucléaire (MWh)], [Production totale (MWh)])
+		formatString: 0.0%
+		displayFolder: Production\Total
+		lineageTag: 47a1206d-bb12-43ba-856a-21a6c0b619cb
+
+	/// Contenu moyen en CO2 de l'électricité produite, en grammes par kWh. Moyenne simple des relevés renseignés, non pondérée par la production.
+	measure 'Taux de CO2 moyen (g/kWh)' = AVERAGE('eco2mix-national-cons-def'[Taux de CO2 (g/kWh)])
+		formatString: #,##0.0
+		displayFolder: Environnement
+		lineageTag: 722ef1c2-f1e7-444a-b33b-302773f98df4
+
+	column 'Colonne technique'
+		isHidden
+		lineageTag: 6923b88c-5119-427a-bea8-fdf01e6382b6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Colonne technique]
+
+	partition Mesures = calculated
+		mode: import
+		source = DATATABLE("Colonne technique", INTEGER, {{0}})
+

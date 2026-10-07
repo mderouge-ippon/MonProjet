@@ -1,0 +1,75 @@
+/// Calendrier continu du 2012-01-01 au 2026-12-31 (un jour par ligne), relié à la date des relevés eco2mix. Contient aussi les jours sans données (2025, septembre à décembre 2026).
+table Calendrier
+	lineageTag: d2647f43-a1fb-4e11-8d4e-898fc54efa3a
+	dataCategory: Time
+
+	/// Jour calendaire. Clé de la table de dates, reliée à la date des relevés eco2mix.
+	column Date
+		isUnique
+		formatString: dd/mm/yyyy
+		lineageTag: 5780b815-6e1f-4353-b272-035b9fc0ddf6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+	/// Année civile.
+	column Année
+		formatString: 0
+		lineageTag: 784d9dd9-b5d3-403c-8f14-758f481473ae
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Année]
+
+	/// Numéro du trimestre (1 à 4), colonne de tri de Trimestre.
+	column 'Numéro de trimestre'
+		isHidden
+		lineageTag: c129cc7d-5482-4a9a-bb7d-2a467dfe4988
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Numéro de trimestre]
+
+	/// Trimestre civil (T1 à T4).
+	column Trimestre
+		lineageTag: 4998bb8c-0d73-4d0c-9f11-2376267fb0fc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Trimestre]
+		sortByColumn: 'Numéro de trimestre'
+
+	/// Numéro du mois (1 à 12), colonne de tri de Nom du mois.
+	column Mois
+		formatString: 0
+		lineageTag: 50540206-9a5a-4c6d-8231-7e92c011386d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mois]
+
+	/// Nom du mois en français (janvier à décembre), tri chronologique.
+	column 'Nom du mois'
+		lineageTag: ab364c15-c16f-4d53-9ad8-01c856b15db0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nom du mois]
+		sortByColumn: Mois
+
+	/// Jour du mois (1 à 31).
+	column Jour
+		formatString: 0
+		lineageTag: ccc1dae0-b740-497d-a372-ed1c7606a256
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Jour]
+
+	partition Calendrier = calculated
+		mode: import
+		source =
+				ADDCOLUMNS(
+				    CALENDAR(DATE(2012,1,1), DATE(2026,12,31)),
+				    "Année", YEAR([Date]),
+				    "Numéro de trimestre", QUARTER([Date]),
+				    "Trimestre", "T" & QUARTER([Date]),
+				    "Mois", MONTH([Date]),
+				    "Nom du mois", FORMAT([Date], "mmmm", "fr-FR"),
+				    "Jour", DAY([Date])
+				)
+

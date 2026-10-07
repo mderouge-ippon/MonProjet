@@ -1,10 +1,4 @@
-relationship 01ada6bb-73f5-4a85-8a2b-0b414b162238
-	joinOnDateBehavior: datePartOnly
+relationship eco2mix-national-cons-def_Date_Calendrier_Date
 	fromColumn: eco2mix-national-cons-def.Date
-	toColumn: LocalDateTable_256aec0f-e94a-43e2-b7ee-b2e942c972e7.Date
-
-relationship 23718804-187d-4b9d-ba21-bb1a7b7bb940
-	joinOnDateBehavior: datePartOnly
-	fromColumn: eco2mix-national-cons-def.'Date et Heure'
-	toColumn: LocalDateTable_29c3d3f1-1890-4a42-825f-a5885e1a5e39.Date
+	toColumn: Calendrier.Date
 
