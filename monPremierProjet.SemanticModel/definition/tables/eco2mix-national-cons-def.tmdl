@@ -1,0 +1,360 @@
+table eco2mix-national-cons-def
+	lineageTag: 15b7bc62-6a63-4420-8d1f-92fd1f502d8d
+
+	column Périmètre
+		dataType: string
+		lineageTag: 97015647-bad9-473e-b527-c4bd80f7aceb
+		summarizeBy: none
+		sourceColumn: Périmètre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nature
+		dataType: string
+		lineageTag: f19ef186-99a0-4c0c-8bf1-6106f56d20cb
+		summarizeBy: none
+		sourceColumn: Nature
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 452b8ed9-0b00-4d0d-88ee-da02907a95ae
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 01ada6bb-73f5-4a85-8a2b-0b414b162238
+			defaultHierarchy: LocalDateTable_256aec0f-e94a-43e2-b7ee-b2e942c972e7.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Heure
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: f1a3c41f-2c81-43d9-a52a-0bf63097f665
+		summarizeBy: none
+		sourceColumn: Heure
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Date et Heure'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bd347a5e-7a38-43a9-8a50-6f0fa1a4a9f5
+		summarizeBy: none
+		sourceColumn: Date et Heure
+
+		variation Variation
+			isDefault
+			relationship: 23718804-187d-4b9d-ba21-bb1a7b7bb940
+			defaultHierarchy: LocalDateTable_29c3d3f1-1890-4a42-825f-a5885e1a5e39.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Consommation (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c3b9ecf-d1e4-4f9d-83d9-0f5fdbb94499
+		summarizeBy: sum
+		sourceColumn: Consommation (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prévision J-1 (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: f15cca45-19e6-4cf3-a146-22abd4a8ec12
+		summarizeBy: sum
+		sourceColumn: Prévision J-1 (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prévision J (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 22662e58-20c2-402c-8607-b35f8c804f6d
+		summarizeBy: sum
+		sourceColumn: Prévision J (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fioul (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 168c8e3d-5d0c-421f-bc44-ffbd97274148
+		summarizeBy: sum
+		sourceColumn: Fioul (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Charbon (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c5502ea-27d0-41bd-b04a-c8df3654fcd2
+		summarizeBy: sum
+		sourceColumn: Charbon (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gaz (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 008cade6-3e3a-4338-835a-775be191e135
+		summarizeBy: sum
+		sourceColumn: Gaz (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nucléaire (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: c331f693-e2b4-4ea6-aa3a-61e8b7abf3da
+		summarizeBy: sum
+		sourceColumn: Nucléaire (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Eolien (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 71584aa1-29a9-43cd-a1ec-23f6c644b015
+		summarizeBy: sum
+		sourceColumn: Eolien (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Solaire (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 21f1e622-aee2-4bc0-9224-db0a16203b5d
+		summarizeBy: sum
+		sourceColumn: Solaire (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hydraulique (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: d29a386b-cb3c-4bc4-91c7-a87f4a3343a5
+		summarizeBy: sum
+		sourceColumn: Hydraulique (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pompage (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 942af57f-a602-4c17-b041-9e1d609391ca
+		summarizeBy: sum
+		sourceColumn: Pompage (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bioénergies (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2612862f-d338-40d4-8487-30a2e0f695af
+		summarizeBy: sum
+		sourceColumn: Bioénergies (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ech. physiques (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 04454cc1-5156-485b-b846-4c65f97473a4
+		summarizeBy: sum
+		sourceColumn: Ech. physiques (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Taux de CO2 (g/kWh)'
+		dataType: int64
+		formatString: 0
+		lineageTag: e920ff6f-2a9c-4ff2-ae7a-1a7b13aa3c8e
+		summarizeBy: sum
+		sourceColumn: Taux de CO2 (g/kWh)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ech. comm. Angleterre (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7758006d-bfc9-40ba-9d15-f5abc99721dc
+		summarizeBy: sum
+		sourceColumn: Ech. comm. Angleterre (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ech. comm. Espagne (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 22239f77-4c86-49d8-9692-39afa9fb323f
+		summarizeBy: sum
+		sourceColumn: Ech. comm. Espagne (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ech. comm. Italie (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 89c93dca-2ff9-407c-8d18-7b83be194764
+		summarizeBy: sum
+		sourceColumn: Ech. comm. Italie (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ech. comm. Suisse (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: c65bf3c3-7d79-4be7-a61a-f66961811e83
+		summarizeBy: sum
+		sourceColumn: Ech. comm. Suisse (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ech. comm. Allemagne-Belgique (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 87880768-1802-46c9-8b58-27a07600dc19
+		summarizeBy: sum
+		sourceColumn: Ech. comm. Allemagne-Belgique (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fioul - TAC (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b4dea30-da69-4114-b8b0-06dd3e948331
+		summarizeBy: sum
+		sourceColumn: Fioul - TAC (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fioul - Cogénération (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: d4dd1522-14d7-44fd-a2ae-1f2dabe057de
+		summarizeBy: sum
+		sourceColumn: Fioul - Cogénération (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fioul - Autres (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: d8d90648-4bf9-4f99-929c-9aa4f88a6194
+		summarizeBy: sum
+		sourceColumn: Fioul - Autres (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gaz - TAC (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: b02c4b3f-beab-4e19-924a-3ddc5238064a
+		summarizeBy: sum
+		sourceColumn: Gaz - TAC (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gaz - Cogénération (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c3d70f3-7039-41a1-a415-97539230459c
+		summarizeBy: sum
+		sourceColumn: Gaz - Cogénération (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gaz - CCG (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: e4cc240e-1405-427c-8ef6-2053f7bd545e
+		summarizeBy: sum
+		sourceColumn: Gaz - CCG (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Gaz - Autres (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: f807573f-fbbb-496e-97b6-b050edf8bce6
+		summarizeBy: sum
+		sourceColumn: Gaz - Autres (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hydraulique - Fil de l''eau + éclusée (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: be1bc844-ac6c-4126-af57-fb831969643f
+		summarizeBy: sum
+		sourceColumn: Hydraulique - Fil de l'eau + éclusée (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hydraulique - Lacs (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 55deb29e-9353-4c44-bd5b-d6119c40fb87
+		summarizeBy: sum
+		sourceColumn: Hydraulique - Lacs (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hydraulique - STEP turbinage (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fa46218-c4e9-4888-adf0-9759d164f7fb
+		summarizeBy: sum
+		sourceColumn: Hydraulique - STEP turbinage (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bioénergies - Déchets (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: b5171aaf-15e5-4fc9-88d0-90667f67f742
+		summarizeBy: sum
+		sourceColumn: Bioénergies - Déchets (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bioénergies - Biomasse (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: 10899cad-f3f7-42f9-8eb2-ee2d0bd2511e
+		summarizeBy: sum
+		sourceColumn: Bioénergies - Biomasse (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Bioénergies - Biogaz (MW)'
+		dataType: int64
+		formatString: 0
+		lineageTag: bc9ec20c-7ae7-4b9d-a4c7-23f35faf1ede
+		summarizeBy: sum
+		sourceColumn: Bioénergies - Biogaz (MW)
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco2mix-national-cons-def = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("C:\Users\mderouge\Downloads\eco2mix-national-cons-def.csv"), [Delimiter = ";", Columns = 37, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Type de colonne changé" = Table.TransformColumnTypes(#"En-têtes promus", {{"Périmètre", type text}, {"Nature", type text}, {"Date", type date}, {"Heure", type time}, {"Date et Heure", type datetime}, {"Consommation (MW)", Int64.Type}, {"Prévision J-1 (MW)", Int64.Type}, {"Prévision J (MW)", Int64.Type}, {"Fioul (MW)", Int64.Type}, {"Charbon (MW)", Int64.Type}, {"Gaz (MW)", Int64.Type}, {"Nucléaire (MW)", Int64.Type}, {"Eolien (MW)", Int64.Type}, {"Solaire (MW)", Int64.Type}, {"Hydraulique (MW)", Int64.Type}, {"Pompage (MW)", Int64.Type}, {"Bioénergies (MW)", Int64.Type}, {"Ech. physiques (MW)", Int64.Type}, {"Taux de CO2 (g/kWh)", Int64.Type}, {"Ech. comm. Angleterre (MW)", Int64.Type}, {"Ech. comm. Espagne (MW)", Int64.Type}, {"Ech. comm. Italie (MW)", Int64.Type}, {"Ech. comm. Suisse (MW)", Int64.Type}, {"Ech. comm. Allemagne-Belgique (MW)", Int64.Type}, {"Fioul - TAC (MW)", Int64.Type}, {"Fioul - Cogénération (MW)", Int64.Type}, {"Fioul - Autres (MW)", Int64.Type}, {"Gaz - TAC (MW)", Int64.Type}, {"Gaz - Cogénération (MW)", Int64.Type}, {"Gaz - CCG (MW)", Int64.Type}, {"Gaz - Autres (MW)", Int64.Type}, {"Hydraulique - Fil de l'eau + éclusée (MW)", Int64.Type}, {"Hydraulique - Lacs (MW)", Int64.Type}, {"Hydraulique - STEP turbinage (MW)", Int64.Type}, {"Bioénergies - Déchets (MW)", Int64.Type}, {"Bioénergies - Biomasse (MW)", Int64.Type}, {"Bioénergies - Biogaz (MW)", Int64.Type}}, "fr")
+				in
+				  #"Type de colonne changé"
+
+	annotation PBI_ResultType = Table
+

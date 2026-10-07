@@ -1,0 +1,27 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-FR
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Erreurs dans les requêtes qui ont été chargées sur 05/10/2026 21:17:59.
+queryGroup 'Erreurs des requêtes – 05/10/2026 21:17:59'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["eco2mix-national-cons-def","Erreurs dans eco2mix-national-cons-def"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table eco2mix-national-cons-def
+ref table DateTableTemplate_8530db59-6e53-4abe-ab16-570761cef195
+ref table LocalDateTable_256aec0f-e94a-43e2-b7ee-b2e942c972e7
+ref table LocalDateTable_29c3d3f1-1890-4a42-825f-a5885e1a5e39
+
+ref cultureInfo fr-FR
+
